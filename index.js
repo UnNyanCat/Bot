@@ -1,0 +1,29 @@
+const Discord = require('discord.js')
+
+const Google = require('./commands/Google')
+const Ping = require('./commands/ping')
+const YouTube = require('./commands/youtube')
+
+const client = new Discord.Client();
+const config = require('./config.json')
+
+const bot = new Discord.Client()
+
+client.config = config;
+
+bot.on('ready', function () {
+    // bot.user.setAvatar('./bot.png').catch(console.error)
+    // bot.user.setActivity('Bot de test !').catch(console.error)
+})
+
+bot.on('guildMemberAdd', function (member) {
+    member.createDM().then(function (channel) {
+        return channel.send('Bienvenue sur le serveur de test ! ' + member.displayName)
+    }).catch(console.error)
+})
+
+bot.on('message', function (message) {
+    let commandUsed = Ping.parse(message) || YouTube.parse(message) || Google.parse(message)
+})
+                                                                       
+bot.login(config.token)
