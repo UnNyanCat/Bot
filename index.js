@@ -16,13 +16,13 @@ const Say = require('./commands/say');
 const client = new Discord.Client();
 
 const token = require('./token.json')
-const config = require('./config.json');
+const prefix = require('./prefix.json');
 
 // DataBase
 const bdd = require('./bdd.json')
 
 // Permissions
-const permission = require('permission.json')
+const permission = require('./permission.json')
 
 const bot = new Discord.Client()
 
@@ -44,7 +44,7 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('message', message => {
 
-    if(message.content.startsWith(`${config.prefix}clear`)){
+    if(message.content.startsWith(`${prefix.prefix}clear`)){
         message.delete()
         if(message.member.hasPermission(permission.message)){
 
@@ -66,7 +66,7 @@ bot.on('message', message => {
         }
     }
 
-    if(message.content.startsWith(`${config.prefix}welcome`)){
+    if(message.content.startsWith(`${prefix.prefix}welcome`)){
         message.delete()
         if(message.member.hasPermission(permission.message)){
             if(message.content.length > 9){
