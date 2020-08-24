@@ -10,6 +10,6 @@ module.exports = class Doc extends Command {
         let args = message.content.split(' ')
         args.shift()
         message.delete()
-        message.reply('https://discord.js.org/#/docs/main/stable/search?q=' + args.join('%20'))
+        message.reply('\nVoici le lien de la doc avec votre recherche\nhttps://discord.js.org/#/docs/main/stable/search?q=' + args.join('%20'))
     }
 }

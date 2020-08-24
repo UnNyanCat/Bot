@@ -1,13 +1,18 @@
 const Discord = require('discord.js')
 
-const Google = require('./commands/Google')
+// Fun
 const Ping = require('./commands/ping')
+
+// Faire des recherches
+const Google = require('./commands/Google')
 const YouTube = require('./commands/youtube')
+const Doc = require('./commands/doc')
+
+// Dire un message depuis le bot
+const Say = require('./commands/say');
 
 const client = new Discord.Client();
 const config = require('./config.json');
-
-const Say = require('./commands/say');
 
 const bot = new Discord.Client()
 
@@ -26,7 +31,7 @@ bot.on('guildMemberAdd', function (member) {
 })
 
 bot.on('message', function (message) {
-    let commandUsed = Ping.parse(message) || YouTube.parse(message) || Say.parse(message) || Google.parse(message)
+    let commandUsed = Ping.parse(message) || YouTube.parse(message) || Doc.parse(message) || Say.parse(message) || Google.parse(message)
 })
                                                                        
 bot.login(config.token)
