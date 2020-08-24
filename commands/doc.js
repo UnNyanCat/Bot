@@ -11,6 +11,10 @@ module.exports = class Doc extends Command {
         let args = message.content.split(' ')
         args.shift()
         message.delete()
-        message.reply('\nVoici le lien de la doc avec votre recherche\nhttps://discord.js.org/#/docs/main/stable/search?q=' + args.join('%20'))
+        if(args < 1){
+            message.reply('Il manque une recherche')
+        } else {
+            message.reply('\nVoici le lien de la doc avec votre recherche\nhttps://discord.js.org/#/docs/main/stable/search?q=' + args.join('%20'))
+        }
     }
 }

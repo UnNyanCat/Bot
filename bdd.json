@@ -1,7 +1,5 @@
 {
-    "message-bienvenue": "Bienvenue sur le serveur",
+    "message-bienvenue": "Bienvenue sur le serveur !",
     "role": "747451039363629076",
-    "warn": {
-
-    }
+    "warn": {}
 }

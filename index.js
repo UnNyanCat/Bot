@@ -98,7 +98,7 @@ bot.on('message', message => {
                 if(!bdd["warn"][utilisateur]){
                     bdd["warn"][utilisateur] = 1
                     saveBdd();
-                    message.channel.send(`User à maintenant : ` + bdd["warn"][utilisateur] + " avertissement(s)");
+                    message.channel.send(` à maintenant : ` + bdd["warn"][utilisateur] + " avertissement(s)");
                 } else {
                     bdd["warn"][utilisateur]++
                     saveBdd();
@@ -114,6 +114,27 @@ bot.on('message', message => {
         let onlines = message.guild.members.cache.filter(({ presence }) => presence.status !== 'offline').size;
         let totalmembers = message.guild.members.cache.size;
         let totalservers = bot.guilds.cache.size;
+        let totalbots = message.guild.members.cache.filter(member => member.user.bot).size;
+        let totalrole = message.guild.roles.cache.get('747451039363629076').members.map(member => member.user.tag).length;
+
+        const myEmbed = new Discord.MessageEmbed()
+            .setColor('#4788c9')
+            .setTitle('Statistiques')
+            .setURL('https://discord.gg/xp8HcdE')
+            .setAuthor('UnChatSauvage')
+            .setDescription('Stats')
+            .addFields(
+                { name: 'Onlines', value: `${onlines}` },
+                { name: '\u200B', value: '\u200B' },
+                { name: 'Total Members', value: `${totalmembers}`, inline: true },
+                { name: 'Total Servers', value: `${totalservers}`, inline: true },
+            )
+            .addField('Bots', `${totalbots}`, true)
+            .addField('Role', `${totalrole}`, true)
+            .setTimestamp()
+            .setFooter('Stats');
+
+        message.channel.send(myEmbed);
     }
 
     let commandUsed = Ping.parse(message) || YouTube.parse(message) || Doc.parse(message) || Say.parse(message) || Google.parse(message)
