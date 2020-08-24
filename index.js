@@ -8,7 +8,6 @@ const client = new Discord.Client();
 const config = require('./config.json');
 
 const Say = require('./commands/say');
-const Doc = require('./commands/doc');
 
 const bot = new Discord.Client()
 
