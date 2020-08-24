@@ -5,7 +5,9 @@ const Ping = require('./commands/ping')
 const YouTube = require('./commands/youtube')
 
 const client = new Discord.Client();
-const config = require('./config.json')
+const config = require('./config.json');
+const Say = require('./commands/say');
+const Doc = require('./commands/doc');
 
 const bot = new Discord.Client()
 
@@ -13,7 +15,7 @@ client.config = config;
 
 bot.on('ready', function () {
     // bot.user.setAvatar('./bot.png').catch(console.error)
-    // bot.user.setActivity('Bot de test !').catch(console.error)
+    bot.user.setActivity('Bot !').catch(console.error)
 })
 
 bot.on('guildMemberAdd', function (member) {
@@ -23,7 +25,7 @@ bot.on('guildMemberAdd', function (member) {
 })
 
 bot.on('message', function (message) {
-    let commandUsed = Ping.parse(message) || YouTube.parse(message) || Google.parse(message)
+    let commandUsed = Ping.parse(message) || YouTube.parse(message) || Say.parse(message) || Google.parse(message)
 })
                                                                        
 bot.login(config.token)
