@@ -1,6 +1,7 @@
 const Command = require('./command')
 
 module.exports = class Doc extends Command {
+
     static match (message) {
         return message.content.startsWith('!doc')
     }

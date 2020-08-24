@@ -14,6 +14,7 @@ const bot = new Discord.Client()
 client.config = config;
 
 bot.on('ready', function () {
+    console.log('Bot started with success')
     // bot.user.setAvatar('./bot.png').catch(console.error)
     bot.user.setActivity('Bot !').catch(console.error)
 })
