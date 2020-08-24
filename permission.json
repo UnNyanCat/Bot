@@ -1,4 +1,6 @@
 {
   "message": "MANAGE_MESSAGES",
+  "ban": "BAN_MEMBERS",
+  "kick": "KICK_MEMBERS",
   "no_perm": "Vous n'avez pas la permission de faire ceci"
 }

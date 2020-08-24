@@ -1,9 +1,10 @@
 const Command = require('./command')
+const shortcut = require('./shortcut.json')
 
 module.exports = class Doc extends Command {
 
     static match (message) {
-        return message.content.startsWith('!doc')
+        return message.content.startsWith(`${shortcut.doc}`)
     }
 
     static action (message) {
