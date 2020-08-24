@@ -62,7 +62,7 @@ bot.on('message', message => {
                 message.channel.send('Veuillez utiliser la commande comme ceci :\n\n!clear (valeur)')
             }
         } else {
-            message.channel.send('Vous devez avoir la permission : MANAGE_MESSAGES')
+            message.channel.send(permission.no_perm)
         }
     }
 
@@ -78,7 +78,7 @@ bot.on('message', message => {
                 message.channel.send(`Vous devez mettre un message après ${welcome} !`)
             }
         } else {
-            message.channel.send(`Vous n'avez pas la permission : `)
+            message.channel.send(permission.no_perm)
         }
     }
 
