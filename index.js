@@ -6,6 +6,7 @@ const YouTube = require('./commands/youtube')
 
 const client = new Discord.Client();
 const config = require('./config.json');
+
 const Say = require('./commands/say');
 const Doc = require('./commands/doc');
 
