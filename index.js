@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 
 const fs = require('fs')
 
+const fetch = require('node-fetch')
+
 // Fun
 const Ping = require('./commands/ping')
 
@@ -175,7 +177,8 @@ bot.on('message', message => {
             } else {
                 return message.channel.send(`Vous avez ${bdd["coins-utilisateurs"][message.member.id]} points !\nEt vous êtes au level ${bdd["level-utilisateurs"][message.member.id]}`)
             }
-        } else {
+        }
+        else {
             addRandomInt(message.member);
             if (!bdd["coins-utilisateurs"][message.member.id]) {
                 bdd["coins-utilisateurs"][message.member.id] = Math.floor(Math.random() * (4 - 1) + 1);
@@ -219,8 +222,21 @@ bot.on('message', message => {
             }
         }
     }
-    else {
-        message.channel.send('La commande est à : ' + bdd["statut-level"])
+
+    if(message.content.startsWith(`${bdd.prefix}prefix`)){
+        message.delete()
+        if(message.member.hasPermission(`${permission.message}`)){
+            if(message.content.length > 7){
+                prefix_bot = message.content.slice(8)
+                bdd["prefix"] = prefix_bot
+                saveBdd()
+            } else {
+                prefix = '!prefix'
+                message.channel.send(`Vous devez mettre un message après ${prefix} !`)
+            }
+        } else {
+            message.channel.send(`${permission.no_perm}`)
+        }
     }
 
     let commandUsed = Ping.parse(message) || YouTube.parse(message) || Doc.parse(message) || Code.parse(message) || Say.parse(message) || Google.parse(message)

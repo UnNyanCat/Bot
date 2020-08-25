@@ -3,11 +3,13 @@
     "message-bienvenue": "Bienvenue sur le serveur !",
     "rank-bienvenue": "747764600782585900",
     "warn": {},
-    "statut-level": true,
+    "statut-level": false,
     "coins-utilisateurs": {
-        "711930203605303317": 17
+        "711930203605303317": 111,
+        "729313899198808124": 4
     },
     "level-utilisateurs": {
-        "711930203605303317": 0
+        "711930203605303317": 1,
+        "729313899198808124": 0
     }
 }
