@@ -3,5 +3,7 @@
   "google": "!google",
   "youtube": "!youtube",
   "say": "!say",
-  "ping": "!ping"
+  "ping": "!ping",
+  "warn": "!warn",
+  "code": "!code"
 }

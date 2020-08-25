@@ -1,5 +1,13 @@
 {
+    "prefix": "!",
     "message-bienvenue": "Bienvenue sur le serveur !",
-    "role": "747451039363629076",
-    "warn": {}
+    "rank-bienvenue": "747764600782585900",
+    "warn": {},
+    "statut-level": true,
+    "coins-utilisateurs": {
+        "711930203605303317": 17
+    },
+    "level-utilisateurs": {
+        "711930203605303317": 0
+    }
 }
